@@ -6,7 +6,7 @@ def clean_data(df):
     df = df.filter(F.col("amount") > 0)
 
     df = df.filter(F.col("name").isNotNull())
-
+	# Add a column containing the amount after 20% tax
     df = df.withColumn(
         "amount_with_tax",
         F.col("amount") * 1.20
